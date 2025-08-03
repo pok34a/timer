@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Countdown Timer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Countdown Timer</h1>
+
+    <div class="input-section">
+      <label for="minutes">Set Time (minutes):</label>
+      <input type="number" id="minutes" placeholder="Enter minutes" />
+    </div>
+
+    <div id="Countdown">
+      <p>00:00</p>
+    </div>
+
+    <div class="button">
+      <button id="startButton">Start</button>
+      <button id="resetButton">Reset</button>
+    </div>
+  </div>
+
+  <div class="zoom-controls">
+    <button id="zoomIn">+</button>
+    <button id="zoomOut">-</button>
+    <button id="zoomReset">⟳</button>
+    <button id="fullScreenBtn">⛶</button>
+  </div>
+
+  <audio id="timerSound" src="https://assets.mixkit.co/sfx/preview/mixkit-achievement-bell-600.mp3"></audio>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    function triggerCelebration() {
+      document.getElementById("timerSound").play();
+      confetti({ particleCount: 150, spread: 70 });
+    }
+  </script>
+
+  <!-- Fullscreen Container -->
+  <div id="fullscreenContainer" style="
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #eb968780 !important;
+    border-radius: 10px;
+    color: white;
+    font-size: larger;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;">
+  <div id="fullscreenTimer" style="
+  font-size: 12rem; 
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow:  0 4px 6px rgba(0, 0, 0, 0.541);
+  padding: 20px;
+  color: #7c1933b9;
+  background-color:rgba(255, 255, 255, 0.281) ;
+  ">00:00</div>
+    <button id="exitFullscreenBtn" style="
+    margin-top: 30px;
+    padding: 10px 20px;
+    background-color: #c27b6eee;
+    color: #3b1f26;
+    font-size: 1rem;
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    z-index: 10000;
+    ">Back</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
